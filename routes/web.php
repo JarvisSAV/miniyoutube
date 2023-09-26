@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,4 +30,11 @@ Route::middleware([
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get  ('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+// Route::get('/home', array(
+//     'as' => 'home',
+//     'uses' => 'HomeController@index'
+// ));
+
+Route::resource('videos', 'App\Http\Controllers\VideoController');
